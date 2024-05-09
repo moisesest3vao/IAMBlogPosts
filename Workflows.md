@@ -43,41 +43,6 @@ log.warn("Name provided: " + name);</Source>
 Sample Workflow in the Business Processes Tab
 **IMAGE
 
-### Another Synchronous Launch (Easiest)
-```java
-<?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
-<Rule created="1715285536834" id="0a0500028f5e1e0a818f5efc3042010f" language="beanshell" modified="1715285759838" name="Launch Workflow 2" type="Workflow">
-  <Source>
-import java.util.HashMap;
-
-import sailpoint.api.Workflower;
-import sailpoint.object.WorkflowLaunch;
-
-// Workflow name
-String wf = "Workflow Launch Test";
-
-// Arguments section
-HashMap launchArgsMap = new HashMap();
-launchArgsMap.put("name", "Moises Estevao");
-
-// Create WorkflowLaunch and set values
-WorkflowLaunch wflaunch = new WorkflowLaunch();
-wflaunch.setWorkflowName(wf);
-wflaunch.setWorkflowRef(wf);
-wflaunch.setCaseName("Random Case Name");
-wflaunch.setVariables(launchArgsMap);
-
-// Create Workflower and launch workflow from WorkflowLaunch
-Workflower workflower = new Workflower(context);
-WorkflowLaunch launch = workflower.launch(wflaunch);
-
-  
-  </Source>
-</Rule>
-
-```
-
 
 ### Synchronous Launch
 
@@ -220,6 +185,42 @@ When launching the example Rule through Debug Page, we can see that the result w
 
 Some good things to be aware of are that the method WorkflowService.launch often does not execute the Workflow, as it is expected to be validated before being called. Remember, this is not an SDK, we are leveraging a native method, so there's a need for a previous validation verifying if the arguments are either null or void, and if the Workflow with the specified name exists.
 
+### Another Synchronous Launch (Easiest)
+```java
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule created="1715285536834" id="0a0500028f5e1e0a818f5efc3042010f" language="beanshell" modified="1715285759838" name="Launch Workflow 2" type="Workflow">
+  <Source>
+import java.util.HashMap;
+
+import sailpoint.api.Workflower;
+import sailpoint.object.WorkflowLaunch;
+
+// Workflow name
+String wf = "Workflow Launch Test";
+
+// Arguments section
+HashMap launchArgsMap = new HashMap();
+launchArgsMap.put("name", "Moises Estevao");
+
+// Create WorkflowLaunch and set values
+WorkflowLaunch wflaunch = new WorkflowLaunch();
+wflaunch.setWorkflowName(wf);
+wflaunch.setWorkflowRef(wf);
+wflaunch.setCaseName("Random Case Name");
+wflaunch.setVariables(launchArgsMap);
+
+// Create Workflower and launch workflow from WorkflowLaunch
+Workflower workflower = new Workflower(context);
+WorkflowLaunch launch = workflower.launch(wflaunch);
+
+  
+  </Source>
+</Rule>
+
+```
+
+
 ###  Asynchronous Launch
 
 Maybe you have an asynchronous requirement, and you don't want to use Tasks at all. What you need is a solution that triggers a Workflow in a particular time, and want to do this programatically. Then the following might help you.
@@ -294,6 +295,6 @@ RequestManager.addRequest(context, req);
 
 
 
-#Conclusion
+# Conclusion
 
 In the ever-evolving landscape of identity governance, the ability to automate workflows stands as a flexible asset for requirements of organizations. By harnessing the power of custom rules and plugins, developers can unlock new realms of possibility within IdentityIQ, tailored to meet the unique demands of their environment. As we embark on this journey of innovation, let us embrace collaboration, feedback, and continuous improvement, ensuring that IdentityIQ remains a beacon of excellence in the realm of identity governance.
