@@ -1,4 +1,4 @@
-# Launching IdentityIQ Workflows via Java Code: A Comprehensive Guide
+# Launching IdentityIQ Workflows Programatically: A Comprehensive Guide
 
 # Introduction
 
@@ -6,11 +6,13 @@ In the realm of IdentityIQ, the orchestration of workflows stands as a cornersto
 
 # Understanding IdentityIQ Workflows Launching
 
-IdentityIQ workflows serve as the backbone of identity governance, facilitating the automation of key processes such as access provisioning, certification, and lifecycle management. Workflows, behind the scenes, are launched in IdentityIQ functionalities recieving a Map of arguments that should be consumed by the workflow. This “launch” operation is not provided in any of the classes presented in the JavaDoc, and not widely recommended by SailPoint to be used. If you have any Identity based trigger requirements, like: Manager Transfer, Identity creation, Native Change, or any other any specified [here](https://documentation.sailpoint.com/identityiq/help/lcm/how_to_create_lifecycle_.html "Lifecycle Events") you should be using [Lifecycle Events](https://documentation.sailpoint.com/identityiq/help/lcm/how_to_create_lifecycle_.html "Lifecycle Events") instead.
+IdentityIQ workflows serve as the backbone of identity governance, facilitating the automation of key processes such as access provisioning, certification, and lifecycle management. Workflows, behind the scenes, are launched in IdentityIQ functionalities recieving a Map of arguments that should be consumed by the workflow. It's important to remember that if you have any Identity based trigger requirements, like: Manager Transfer, Identity creation, Native Change, or any other any specified [here](https://documentation.sailpoint.com/identityiq/help/lcm/how_to_create_lifecycle_.html "Lifecycle Events") you should be using [Lifecycle Events](https://documentation.sailpoint.com/identityiq/help/lcm/how_to_create_lifecycle_.html "Lifecycle Events") instead.
 
 But, as we know that OOTB functionalities don't always work well in a complex IAM environment, let's talk about how to do this in a more flexible way.
 
 # Integrating Custom Logic with IdentityIQ Workflows
+
+Before getting deep on methods for Launching Workflows programatically, it's important considering using IIQ Console [Workflows commands](https://documentation.sailpoint.com/identityiq/help/iiqconsole/84consolecommands.html#Workflow:~:text=ShowGroup-,Workflow%20Commands,-Workflow "Workflows commands") if your requirements are: Workflow Launch with Shell or Batch Scripts, Manual Tests or other CLI integrations. With that being said, let's dive into it.
 
 At the heart of workflow customization lies the ability to launch workflows via BeanShell Rules or Java Plugins. By embedding custom code within IdentityIQ, developers can extend its functionality and address specific business requirements with precision and efficiency.
 
