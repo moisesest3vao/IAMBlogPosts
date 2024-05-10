@@ -8,7 +8,7 @@ In the realm of IdentityIQ, the orchestration of workflows stands as a cornersto
 
 IdentityIQ workflows serve as the backbone of identity governance, facilitating the automation of key processes such as access provisioning, certification, and lifecycle management. Workflows, behind the scenes, are launched in IdentityIQ functionalities recieving a Map of arguments that should be consumed by the workflow. It's important to remember that if you have any Identity based trigger requirements, like: Manager Transfer, Identity creation, Native Change, or any other any specified [here](https://documentation.sailpoint.com/identityiq/help/lcm/how_to_create_lifecycle_.html "Lifecycle Events") you should be using [Lifecycle Events](https://documentation.sailpoint.com/identityiq/help/lcm/how_to_create_lifecycle_.html "Lifecycle Events") instead.
 
-But, as we know that OOTB functionalities don't always work well in a complex IAM environment, let's talk about how to do this in a more flexible way.
+But, as we know that OOTB functionalities don't always fit perfectly in complex IAM environments, let's talk about how to do this in a more flexible way.
 
 # Integrating Custom Logic with IdentityIQ Workflows
 
