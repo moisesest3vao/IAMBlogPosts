@@ -18,7 +18,8 @@ At the heart of workflow customization lies the ability to launch workflows via 
 
 Now that you know if launching Workflows via Java code is the best option to you. Let's understand how to do it in practice.
 
-The Workflow Sample that were are going to use is a simple one. It's only function is to recieve an argument called "name" and log it in the screen.
+The Workflow Sample that we're going to use is a simple one. It's only function is to recieve an argument called "name" and log it in the screen.
+
 Sample Workflow
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -178,7 +179,7 @@ public class CustomWorkflowService {
     }
 }
 ``` 
-As Java and BeanShell are pretty similar and Java can leverage pretty much any resource presented in Rules, from now on in this document we are only going to show BeanShell Rules. If you wanna know more about plugins, check out [IdentityIQ Plugins](https://community.sailpoint.com/t5/IdentityIQ-Plugins/ct-p/Plugins "IdentityIQ Plugins")
+As Java and BeanShell are pretty similar and Java can leverage pretty much any resource presented in Rules, from now on in this document we are only going to show BeanShell Rules. If you wanna know more about Java Plugins, check out [IdentityIQ Plugins](https://community.sailpoint.com/t5/IdentityIQ-Plugins/ct-p/Plugins "IdentityIQ Plugins")
 
 When launching the example Rule through Debug Page, we can see that the result was the expected, and a TaskResult was created in the IIQ database. 
 ** IMAGE
@@ -186,10 +187,14 @@ When launching the example Rule through Debug Page, we can see that the result w
 Some good things to be aware of are that the method WorkflowService.launch often does not execute the Workflow, as it is expected to be validated before being called. Remember, this is not an SDK, we are leveraging a native method, so there's a need for a previous validation verifying if the arguments are either null or void, and if the Workflow with the specified name exists.
 
 ### Another Synchronous Launch (Easiest)
+
+In this scenario, we are leveraging **sailpoint.api.Workflower.launch(WorkflowLaunch)** to launch a Workflow. This is the easiest way to execute a workflow programatically, in a fashion "SDK way of life". Also, in this scenario we can set some other configurations in WorkflowLaunch object, such as WorkflowCase name (line 21).
+
+
 ```java
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
-<Rule created="1715285536834" id="0a0500028f5e1e0a818f5efc3042010f" language="beanshell" modified="1715285759838" name="Launch Workflow 2" type="Workflow">
+<Rule language="beanshell" name="Launch Workflow 2" type="Workflow">
   <Source>
 import java.util.HashMap;
 
@@ -219,7 +224,8 @@ WorkflowLaunch launch = workflower.launch(wflaunch);
 </Rule>
 
 ```
-
+The result of this scenario is pretty much the same from the other one, as shown in the image below:
+*** IMAGE
 
 ###  Asynchronous Launch
 
@@ -228,7 +234,7 @@ Maybe you have an asynchronous requirement, and you don't want to use Tasks at a
 This code block is using a different approach. The Rule uses **import sailpoint.api.RequestManager** to leverage a kind of queue, where a  **RequestDefinition** is sent with a time in millis to be executed and other standard configurations.
 
 
-```java
+```java 
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
 <Rule language="beanshell" name="Launch Workflow Asynchronously" type="Workflow">
@@ -292,7 +298,8 @@ RequestManager.addRequest(context, req);
   </Source>
 </Rule>
 ```
-
+After executing this Rule, Workflows are put in a RequestManager queue (line 57), where they'll be waiting to be processed. After 5 seconds, the result was pretty much the same from the others, as shown in the following image:
+** IMAGE
 
 
 # Conclusion
