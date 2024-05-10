@@ -306,4 +306,4 @@ After executing this Rule, Workflows are put in a RequestManager queue (line 57)
 
 # Conclusion
 
-In the ever-evolving landscape of identity governance, the ability to automate workflows stands as a flexible asset for requirements of organizations. By harnessing the power of custom rules and plugins, developers can unlock new realms of possibility within IdentityIQ, tailored to meet the unique demands of their environment. As we embark on this journey of innovation, let us embrace collaboration, feedback, and continuous improvement, ensuring that IdentityIQ remains a beacon of excellence in the realm of identity governance.
+In the ever-evolving landscape of identity governance, the ability to automate workflows stands as a flexible asset for requirements of organizations. By harnessing the power of custom rules and plugins, developers can unlock new realms of possibility within IdentityIQ, tailored to meet the unique demands of their environment. Most IdentityIQ installations only require Workflow launching after some project maturity, this is because this feature is most commonly used to reuse custom features that have been developed over time.
