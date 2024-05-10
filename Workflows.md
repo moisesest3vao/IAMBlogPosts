@@ -2,7 +2,7 @@
 
 # Introduction
 
-In the realm of IdentityIQ, the orchestration of workflows stands as a cornerstone for effective identity governance. Yet, mastering the art of workflow automation entails more than just leveraging built-in functionalities. It necessitates the integration of custom logic through rules or plugins, empowering developers to tailor IdentityIQ to their organization's unique needs, leveraging unit tests, async workflow launching at runtime, scheduling in tasks, etc.
+In the realm of IdentityIQ, the orchestration of workflows stands as a cornerstone for effective identity governance. Yet, mastering the art of workflow automation entails more than just leveraging built-in functionalities. It necessitates the integration of custom logic through rules or plugins, empowering developers to tailor IdentityIQ to their organization's unique needs, leveraging unit tests, async workflow launching at runtime, scheduling in custom tasks, etc.
 
 # Understanding IdentityIQ Workflows Launching
 
